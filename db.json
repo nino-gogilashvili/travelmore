@@ -1,0 +1,453 @@
+{
+  "users": [
+    {
+      "id": "2",
+      "username": "",
+      "fullname": "",
+      "password": "",
+      "mail": "",
+      "phone": ""
+    },
+    {
+      "username": "irakli",
+      "fullname": "irakli",
+      "email": "irakli",
+      "password": "irakli",
+      "phone": "irakli",
+      "id": "ynxmj32"
+    },
+    {
+      "username": "",
+      "fullname": "",
+      "email": "",
+      "password": "",
+      "phone": "",
+      "id": "G_4tolD"
+    }
+  ],
+  "hotels": [
+    {
+      "username": "irakli",
+      "mail": "irakli@mail.com",
+      "password": "irakli123",
+      "hotelName": "Radisson",
+      "location": "Tbilisi",
+      "address": "rustaveli str",
+      "phone": "123456",
+      "stars": "5",
+      "rooms": [
+        {
+          "type": "single",
+          "roomId": "irakli-0",
+          "reservation": [
+            [
+              true,
+              "irakli"
+            ],
+            [
+              true,
+              "irakli"
+            ],
+            [
+              true,
+              "irakli"
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ]
+          ]
+        },
+        {
+          "type": "single",
+          "roomId": "irakli-1",
+          "reservation": [
+            [
+              true,
+              "irakli"
+            ],
+            [
+              true,
+              "irakli"
+            ],
+            [
+              true,
+              "irakli"
+            ],
+            [
+              true,
+              "irakli"
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ]
+          ]
+        },
+        {
+          "type": "single",
+          "roomId": "irakli-2",
+          "reservation": [
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ],
+            [
+              false,
+              ""
+            ]
+          ]
+        }
+      ],
+      "id": "kpT94ko"
+    },
+    {
+      "username": "Naino",
+      "mail": "n@jkj",
+      "password": "123456789",
+      "hotelName": "fffff",
+      "location": "Tbilisi",
+      "address": "ffff",
+      "phone": "35446454",
+      "stars": "3",
+      "rooms": [],
+      "id": "9DKZCSw"
+    },
+    {
+      "username": "Naino",
+      "mail": "n@jkj",
+      "password": "123456789",
+      "hotelName": "fffff",
+      "location": "Tbilisi",
+      "address": "ffff",
+      "phone": "35446454",
+      "stars": "4",
+      "rooms": [],
+      "id": "3TDjOR4"
+    }
+  ],
+  "currentUser": {
+    "id": "3",
+    "username": "irakli"
+  },
+  "currenthotel": {
+    "id": "4",
+    "username": "irakli"
+  }
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="./hotel.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <div class="navbar-container">
+            <div class="left">
+                <h1>TravelMore</h1>
+            </div>
+            <div class="right">
+                <p class="res-btn">my reservations</p>
+                <p><i class='bx bx-globe'></i></p>
+                <div class="user-container">
+                    <i class='bx bx-menu'></i>
+                    <i class='bx bxs-user-circle'></i>
+                </div>
+                <div class="hotel-info">
+                    <p>hotel name</p>
+                    <p>hotel info</p>
+                    <p>log out</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="hotel-information">
+        <h1>Hotel name</h1>
+        <h3>Address : <span class="hotel-address"></span></h3>
+        <h3>Stars : <span class="hotel-stars">
+            </span></h3>
+        <h3>Number of Rooms : <span class="number-of-rooms"></span></h3>
+        <button class="add-room">
+            Add Room
+        </button>
+        <div class="room-container">
+            <label for="room-type" class="room-type-label">Room type: </label>
+            <select id="room-type">
+                <option value="single">Single</option>
+                <option value="single">Double</option>
+                <option value="single">Twin</option>
+                <option value="single">Family</option>
+            </select>
+
+            <button class="confirm-room">Add</button>
+        </div>
+    </div>
+
+    <div class="reservation-table">
+        <i class="bx bx-x"></i>
+        <div class="table-container">
+            <table>
+                <thead>
+                    <tr class="head-row">
+                        <th>#</th>
+                        <th>Type</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="main">
+
+    </div>
+    <script src="./hotel.js"></script>
+</body>
+
+</html>
