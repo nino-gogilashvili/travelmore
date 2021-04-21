@@ -135,7 +135,8 @@ html {
   height: calc(100% - 70px);
   position: relative;
   top: 70px;
-  background: url(../img/akaki.jpg) no-repeat center center;
+  background: url(../img/22c5e154d806c069b0319cdbbcce24ab-georgia.jpg) no-repeat
+    center center;
   background-size: cover;
   z-index: -1;
 }

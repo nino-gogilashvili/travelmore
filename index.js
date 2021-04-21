@@ -3,15 +3,17 @@ const login = document.querySelector('.login-popup');
 const loginbtn = document.querySelector('.login');
 const signbtn = document.querySelector('.sign');
 const regbtn = document.querySelector('.register');
-const singupForm =document.querySelector('.signup-form');
-const loginForm =document.querySelector('.log-in-form');
+const singupForm = document.querySelector('.signup-form');
+const loginForm = document.querySelector('.log-in-form');
 const logBtn = document.querySelector('.logbtn');
 const checkin = document.querySelector('.check-in');
 const checkout = document.querySelector('.check-out');
 const city = document.querySelector('.location-select');
 const numberOfGuests = document.querySelector('.number-of-persons');
-const roomContainer  = document.querySelector('.rooms-container');
+const roomContainer = document.querySelector('.rooms-container');
 const checkBtn = document.querySelector('.bxs-check-circle');
+const citySelect = document.querySelector('.location-select');
+const tbody = document.querySelector('tbody');
 const url = "http://localhost:3000";
 let currentUser = "";
 
@@ -30,56 +32,102 @@ async function getUser() {
 getUser();
 
 async function getFreeRooms() {
-   if (checkin.value && checkout.value) {
-       roomContainer.classList.add('vis');
-       let hotels = await fetch(`${url}/hotels`);
-       let hotelsJson = await hotels.json();
-       
-       let number = numberOfGuests.value;
-       let type = "";
-       switch (number) {
-        case "1":
-            type = "single"
-            break;
-        case "2":
-            type = "double"
-            break;
-        case "3":
-            type = "family"
-            break;
+    if (checkin.value && checkout.value) {
+        roomContainer.classList.add('vis');
+        let hotels = await fetch(`${url}/hotels`);
+        let hotelsJson = await hotels.json();
+
+        let number = numberOfGuests.value;
+        let type = [];
+        switch (number) {
+            case "1":
+                type = ["single"]
+                break;
+            case "2":
+                type = ["double", "twin"]
+                break;
+            case "3":
+                type = ["family"]
+                break;
         }
-        let checkin = document.querySelector('.check-in').value;
-        let checkout = document.querySelector('.check-out').value;
-        let from = getDay(checkin);
-        let to = getDay(checkout);
+
+        let from = getDay(checkin.value);
+        let to = getDay(checkout.value);
+        let city = citySelect.value;
+        console.log(city);
+
         hotelsJson.forEach(hotel => {
-            hotel.rooms.forEach(room => {
-            if (room.type == type) {
-                let isFree = true;
-                for (let day of room.reservation) {
-                    if (day[0] == true) {
-                        isFree = false;
+            if (hotel.location.toLowerCase() == city) {
+                console.log(hotel);
+                hotel.rooms.forEach(room => {
+                    let isFree = true;
+                    if (type.length == 1) {
+                        if (room.type == type[0]) {
+                            room.reservation.forEach((res, index) => {
+                                if (index >= from && index <= to) {
+                                    if (res[0] == true) {
+                                        isFree = false;
+                                    }
+                                }
+                            })
+                            if (isFree) {
+                                let stars = +hotel.stars;
+                                console.log(stars);
+                                let tr = document.createElement('tr');
+                                tr.innerHTML = `
+                                <td>${hotel.hotelName}</td>
+                               `
+                                let td = document.createElement('td');
+                                for (let i = 0; i < 5; i++) {
+                                    let icon = document.createElement('i');
+                                    icon.classList.add('bx');
+                                    if (i < stars) {
+                                        icon.classList.add('bxs-star');
+                                    } else {
+                                        icon.classList.add('bx-star');
+                                    }
+                                    td.appendChild(icon);
+                                }
+                                tr.appendChild(td);
+                                tr.innerHTML += `
+                                <td>${room.type}</td>
+                                <td>${calculatePrice(stars, type)}$</td>
+                                <td>
+                                    <button class="reserve" data-hotel-id="${hotel.id}" data-room-id="${room.roomId}">Reserve</button>
+                                </td>
+                                `
+                                tbody.appendChild(tr);
+                            }
+                        }
+                    } else if (type.length == 2) {
+                        if (room.type == type[0] || room.type == type[1]) {
+                            console.log(room);
+                        }
                     }
-                }
-                if (isFree) {
-                    let div = document.createElement('div');
-                    div.classList.add('room');
-                    div.innerHTML = `
-                        <span class="hotel-name">${hotel.hotelName}</span>
-                        <span class="room-type">${room.type}</span>
-                        <span class="price">100$</span>
-                        <button class="reserve" data-room-id="${room.roomId}" data-hotel-id="${hotel.id}">Reserve</button>
-                    `
-                    roomContainer.appendChild(div);
-                    checkin.value = "";
-                    checkout.value = "";
-                }
+                })
             }
         });
-    });
-       }
+    }
 }
 
+function calculatePrice(stars, type) {
+    let basePrice = 30;
+    let starPrice = stars * 10;
+    switch (type) {
+        case "single":
+            basePrice *= 1;
+            break;
+        case "double":
+        case "twin":
+            basePrice *= 2;
+            break;
+        case "family":
+            basePrice *= 3;
+            break;
+    }
+    let price = basePrice + starPrice;
+    return price;
+}
 
 async function reserve(e) {
     if (e.target.className == 'reserve') {
@@ -123,6 +171,8 @@ async function reserve(e) {
                 id: hotelJson.id
             })
         })
+
+        setTimeout(location.reload(), 1000);
     }
 }
 
@@ -173,13 +223,13 @@ async function signupUser(e) {
 };
 
 regbtn.addEventListener('click', signupUser);
-users.addEventListener('click' , showLoginForm);
+users.addEventListener('click', showLoginForm);
 signbtn.addEventListener('click', popRegForm);
 logBtn.addEventListener('click', loginUser);
 
 
-loginbtn.addEventListener('click', ()=>{
-loginForm.classList.toggle('vis')
+loginbtn.addEventListener('click', () => {
+    loginForm.classList.toggle('vis')
 })
 
 
@@ -188,7 +238,7 @@ async function loginUser(e) {
     const logUsername = document.querySelector('.log-username').value;
     const logpass = document.querySelector('.log-password').value;
 
-    let loguser = await  fetch (`${url}/users?username=${logUsername}&password=${logpass}`);
+    let loguser = await fetch(`${url}/users?username=${logUsername}&password=${logpass}`);
     console.log(loguser);
     let userJson = await loguser.json();
     console.log(userJson);
@@ -199,17 +249,17 @@ async function loginUser(e) {
     }
 
     fetch(`${url}/currentuser`, {
-        method : "PATCH" ,
-        headers : {
-            "Content-Type" : "application/json"
-        }, 
-        body : JSON.stringify({
-            id : "3",
-            username : logUsername
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            id: "3",
+            username: logUsername
         })
     })
 
-    setTimeout(() => {location.reload()}, 1000);
+    setTimeout(() => { location.reload() }, 1000);
 }
 
 
